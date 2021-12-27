@@ -14,7 +14,7 @@
 <meta property="og:description" content="[TOC] 一、Spring概念 Spring是轻量级的开源的JavaEE框架。 Spring可以解决企业应用开发的复杂性。 Spring有两个核心部分，IOC和Aop: IOC:控制反转，把创建对象过程交给Spring进行管理。 Aop:面向切面编程，不修改源代码进行功能增强。   Spring特点（使用Spring的好处） 轻量:Spring 是轻量的，基本的版本大约2MB 控制反转：Spri">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-27T07:33:03.000Z">
-<meta property="article:modified_time" content="2021-12-27T08:13:02.910Z">
+<meta property="article:modified_time" content="2021-12-27T08:31:52.344Z">
 <meta property="article:author" content="senmu">
 <meta property="article:tag" content="-tag1 -tag2">
 <meta name="twitter:card" content="summary">
@@ -241,12 +241,74 @@
 </li>
 <li><p>bean的<strong>生命周期</strong></p>
 <ul>
-<li><p>加载配置文件：</p>
+<li>加载配置文件：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext context</span><br><span class="line"><span class="keyword">new</span> ClassPathXmlApplicationContext bean4.xml;</span><br><span class="line">ClassPathXmlApplicationContext context =</span><br><span class="line"><span class="keyword">new</span> ClassPathXmlApplicationContext (<span class="string">&quot;bean4.xml&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>执行无参构造器创造实例。</p>
 </li>
-<li><p>```java<br>ApplicationContext context<br>new ClassPathXmlApplicationContext bean4.xml;<br>ClassPathXmlApplicationContext context =<br>new ClassPathXmlApplicationContext (“bean4.xml”);</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   - 执行无参构造器创造实例。</span><br><span class="line"></span><br><span class="line">   - 设置bean的属性值和其他bean的引用（调用setter）。</span><br><span class="line"></span><br><span class="line">   - **将bean实例传递给bean后置处理器的**postProcess**Before**Initialization() **方法。（加后置处理器时，在调用初始化步骤前后）**</span><br><span class="line"></span><br><span class="line">   - **自动调用**bean的**初始化方法**（需要在bean标签中配置**init-method=&quot;initMethod()&quot;属性**和在类中定义初始化initMethod()方法）</span><br><span class="line"></span><br><span class="line">   - **将bean实例传递给bean后置处理器的**postProcess**After**Initialization() **方法。（加后置处理器时）**</span><br><span class="line"></span><br><span class="line">   - 使用bean，通过调用 context.getBean() 方法时获取对象。</span><br><span class="line"></span><br><span class="line">   - 当容器关闭时，((ClassPathxmlApplicationContext) context).close ()；**手动调用**bean的销毁的方法（需要在bean标签中配置**destroy-method=&quot;destroyMethod()&quot;属性**和在类中定义**destroyMethod()**销毁方法）.</span><br><span class="line"></span><br><span class="line">6. 后置处理器</span><br><span class="line"></span><br><span class="line">   - 若存在，则在执行时期在生命周期中调用初始化方法的前后。</span><br><span class="line">   - 创建实现类实现BeanPostProcessor接口中的postProcess**Before**Initialization（Object bean，String beanName）和 postProcess**After**Initialization（Object bean，String beanName）方法。</span><br><span class="line">   - xml中配置：与配置普通的bean相同。</span><br><span class="line"></span><br><span class="line">7. xml的自动装配</span><br><span class="line"></span><br><span class="line">   - 根据指定装配规则（属性名或属性类型），Spring自动将匹配的属性值进行注入。</span><br><span class="line">   - 自动装配的过程：&lt;bean&gt;标签中属性autowire=&quot;...&quot;。可设值：byName：根据名称自动装配。byType：根据属性类型自动注入。</span><br><span class="line">   - 不常用，一般通过注解自动装配。</span><br><span class="line"></span><br><span class="line">8. 外部属性文件（常用于配置连接池）</span><br><span class="line"></span><br><span class="line">   - 直接配置：与配置bean类似，将驱动器、url、username、password通过&lt;property&gt;设置value属性值。</span><br><span class="line">   - [外部引用](https://blog.csdn.net/qq_41865229/article/details/120758434)：第一步:引入context命名空间。第二步:引入外部属性文件。第三步:引用外部属性文件中的属性值。</span><br><span class="line"></span><br><span class="line">## 4、IOC操作Bean管理（基于注解）</span><br><span class="line"></span><br><span class="line">### Ⅰ 什么是注解</span><br><span class="line"></span><br><span class="line">1. 注解是代码的特殊标记，格式：@注解名称(属性名=属性值，...)</span><br><span class="line">2. 使用注解，定义在类、方法、属性上。</span><br><span class="line">3. 目的：简化xml配置。</span><br><span class="line"></span><br><span class="line">### Ⅱ Spring针对Bean管理中的创建对象提供注解</span><br><span class="line"></span><br><span class="line">1. @**Controller** 控制器（注入服务）用于标注控制层，相当于struts中的action层。</span><br><span class="line">2. @**Service** 服务（注入dao）用于标注服务层，主要用来进行业务的逻辑处理。</span><br><span class="line">3. @**Rrepository**（实现dao访问）用于标注数据访问层，也可以说用于标注数据访问组件，即DAO组件</span><br><span class="line">4. @**Component** （把普通pojo实例化到spring容器中，相当于配置文件中的)泛指各种组件，就是说当我们的类不属于各种归类的时候（不属于@Controller、@Services等的时候），我们就可以使用@Component来标注这个类。</span><br><span class="line">5. 前四个注解**都可以用来创建bean实例**。</span><br><span class="line"></span><br><span class="line">### Ⅲ 基于注解方式实现对象创建</span><br><span class="line"></span><br><span class="line">1. 第一步：引入依赖（spring-aop-5.2.9.RELEASE.jar）。</span><br><span class="line">2. 第二部：[开启组件扫描](https://blog.csdn.net/weixin_43883917/article/details/112747184)。先引入context命名空间。再配置扫描范围（&lt;context:component-scan base-package=&quot;包名&quot;&gt; ... &lt;/context:component-scan&gt;）。**默认的情况就是都扫描,可配置扫描的文件列表和不扫描的文件列表**。</span><br><span class="line">3. 第三步：使用注解修饰代码结构。</span><br><span class="line"></span><br><span class="line">### Ⅳ 基于注解方法实现属性注入</span><br><span class="line"></span><br><span class="line">1. @**Autowired：**自动根据类型注入，自动装配常用注解。</span><br><span class="line">2. @**Qualifier(value=&quot;名称&quot;)**：指定自动注入的id名称，**与上个注解一起使用**，适用于接口有多个实现类时，指定具体实现类id。</span><br><span class="line">3. @Resource(“名称”)：默认无属性根据类型注入，加属性name=&quot;类id&quot;，可根据名称注入。区别，非spring框架包中的，而是javax中的。</span><br><span class="line">4. @Value(value=...)：注入普通类型属性，注入实际值。使用：直接在类属性上修饰。使用后就不用在xml中配置注入了。</span><br><span class="line"></span><br><span class="line">### Ⅴ 完全注解开发</span><br><span class="line"></span><br><span class="line">1. 创建配置类，替代xml文件。</span><br><span class="line"></span><br><span class="line">   ```java</span><br><span class="line">   @Configuration//作为配置类，替代xml配置文件</span><br><span class="line">   @ComponentScan(basePackages com.atguigu &#125;</span><br><span class="line">   public class SpringConfig</span><br></pre></td></tr></table></figure></li>
+<li><p>设置bean的属性值和其他bean的引用（调用setter）。</p>
+</li>
+<li><p><strong>将bean实例传递给bean后置处理器的</strong>postProcess<strong>Before</strong>Initialization() <strong>方法。（加后置处理器时，在调用初始化步骤前后）</strong></p>
+</li>
+<li><p><strong>自动调用</strong>bean的<strong>初始化方法</strong>（需要在bean标签中配置<strong>init-method=”initMethod()”属性</strong>和在类中定义初始化initMethod()方法）</p>
+</li>
+<li><p><strong>将bean实例传递给bean后置处理器的</strong>postProcess<strong>After</strong>Initialization() <strong>方法。（加后置处理器时）</strong></p>
+</li>
+<li><p>使用bean，通过调用 context.getBean() 方法时获取对象。</p>
+</li>
+<li><p>当容器关闭时，((ClassPathxmlApplicationContext) context).close ()；<strong>手动调用</strong>bean的销毁的方法（需要在bean标签中配置<strong>destroy-method=”destroyMethod()”属性</strong>和在类中定义**destroyMethod()**销毁方法）.</p>
+</li>
 </ul>
 </li>
+<li><p>后置处理器</p>
+<ul>
+<li>若存在，则在执行时期在生命周期中调用初始化方法的前后。</li>
+<li>创建实现类实现BeanPostProcessor接口中的postProcess<strong>Before</strong>Initialization（Object bean，String beanName）和 postProcess<strong>After</strong>Initialization（Object bean，String beanName）方法。</li>
+<li>xml中配置：与配置普通的bean相同。</li>
+</ul>
+</li>
+<li><p>xml的自动装配</p>
+<ul>
+<li>根据指定装配规则（属性名或属性类型），Spring自动将匹配的属性值进行注入。</li>
+<li>自动装配的过程：<bean>标签中属性autowire=”…”。可设值：byName：根据名称自动装配。byType：根据属性类型自动注入。</li>
+<li>不常用，一般通过注解自动装配。</li>
+</ul>
+</li>
+<li><p>外部属性文件（常用于配置连接池）</p>
+<ul>
+<li>直接配置：与配置bean类似，将驱动器、url、username、password通过<property>设置value属性值。</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41865229/article/details/120758434">外部引用</a>：第一步:引入context命名空间。第二步:引入外部属性文件。第三步:引用外部属性文件中的属性值。</li>
+</ul>
+</li>
+</ol>
+<h2 id="4、IOC操作Bean管理（基于注解）"><a href="#4、IOC操作Bean管理（基于注解）" class="headerlink" title="4、IOC操作Bean管理（基于注解）"></a>4、IOC操作Bean管理（基于注解）</h2><h3 id="Ⅰ-什么是注解"><a href="#Ⅰ-什么是注解" class="headerlink" title="Ⅰ 什么是注解"></a>Ⅰ 什么是注解</h3><ol>
+<li>注解是代码的特殊标记，格式：@注解名称(属性名=属性值，…)</li>
+<li>使用注解，定义在类、方法、属性上。</li>
+<li>目的：简化xml配置。</li>
+</ol>
+<h3 id="Ⅱ-Spring针对Bean管理中的创建对象提供注解"><a href="#Ⅱ-Spring针对Bean管理中的创建对象提供注解" class="headerlink" title="Ⅱ Spring针对Bean管理中的创建对象提供注解"></a>Ⅱ Spring针对Bean管理中的创建对象提供注解</h3><ol>
+<li>@<strong>Controller</strong> 控制器（注入服务）用于标注控制层，相当于struts中的action层。</li>
+<li>@<strong>Service</strong> 服务（注入dao）用于标注服务层，主要用来进行业务的逻辑处理。</li>
+<li>@<strong>Rrepository</strong>（实现dao访问）用于标注数据访问层，也可以说用于标注数据访问组件，即DAO组件</li>
+<li>@<strong>Component</strong> （把普通pojo实例化到spring容器中，相当于配置文件中的)泛指各种组件，就是说当我们的类不属于各种归类的时候（不属于@Controller、@Services等的时候），我们就可以使用@Component来标注这个类。</li>
+<li>前四个注解<strong>都可以用来创建bean实例</strong>。</li>
+</ol>
+<h3 id="Ⅲ-基于注解方式实现对象创建"><a href="#Ⅲ-基于注解方式实现对象创建" class="headerlink" title="Ⅲ 基于注解方式实现对象创建"></a>Ⅲ 基于注解方式实现对象创建</h3><ol>
+<li>第一步：引入依赖（spring-aop-5.2.9.RELEASE.jar）。</li>
+<li>第二部：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43883917/article/details/112747184">开启组件扫描</a>。先引入context命名空间。再配置扫描范围（&lt;context:component-scan base-package=”包名”&gt; … </context:component-scan>）。<strong>默认的情况就是都扫描,可配置扫描的文件列表和不扫描的文件列表</strong>。</li>
+<li>第三步：使用注解修饰代码结构。</li>
+</ol>
+<h3 id="Ⅳ-基于注解方法实现属性注入"><a href="#Ⅳ-基于注解方法实现属性注入" class="headerlink" title="Ⅳ 基于注解方法实现属性注入"></a>Ⅳ 基于注解方法实现属性注入</h3><ol>
+<li>@<strong>Autowired：</strong>自动根据类型注入，自动装配常用注解。</li>
+<li>@<strong>Qualifier(value=”名称”)<strong>：指定自动注入的id名称，</strong>与上个注解一起使用</strong>，适用于接口有多个实现类时，指定具体实现类id。</li>
+<li>@Resource(“名称”)：默认无属性根据类型注入，加属性name=”类id”，可根据名称注入。区别，非spring框架包中的，而是javax中的。</li>
+<li>@Value(value=…)：注入普通类型属性，注入实际值。使用：直接在类属性上修饰。使用后就不用在xml中配置注入了。</li>
+</ol>
+<h3 id="Ⅴ-完全注解开发"><a href="#Ⅴ-完全注解开发" class="headerlink" title="Ⅴ 完全注解开发"></a>Ⅴ 完全注解开发</h3><ol>
+<li><p>创建配置类，替代xml文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span><span class="comment">//作为配置类，替代xml配置文件</span></span><br><span class="line"><span class="meta">@ComponentScan(basePackages com.atguigu &#125;</span></span><br><span class="line"><span class="meta">public class SpringConfig</span></span><br></pre></td></tr></table></figure></li>
 <li><p>编写测试类：加载配置时，获取的是AnnotationConfigApplicationContext(配置类.class)实例，且不是加载xml文件。</p>
 </li>
 </ol>
@@ -394,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mrsenmu.com/post/20211227153303.html" data-id="ckxoenc4l0001pct2425t89dr" data-title="我的测试文章" class="article-share-link">分享</a>
+      <a data-url="http://mrsenmu.com/post/20211227153303.html" data-id="ckxof9mkf0001t4t26dtu4p9j" data-title="我的测试文章" class="article-share-link">分享</a>
       
       
       
