@@ -140,7 +140,7 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://www.mrsenmu.com/post/20220208112947.html">
+  <link rel="canonical" href="https://www.mrsenmu.com/post/MySql拼接多列查询结果字段/">
   <title>
     
       拼接多列查询结果字段 - Mr.森木的博客
@@ -246,6 +246,17 @@
           
           
           <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
             <a href="/about/">
               
               关于
@@ -255,17 +266,6 @@
           </li>
           
           
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              归档
-              
-              
-            </a>
-          </li>
           
           
           
@@ -412,7 +412,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">361</span> In Total
+              Words <span class="post-count">362</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -474,7 +474,7 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h2 id="拼接多列查询结果字段">拼接多列查询结果字段</h2>
+        <h2 id="MySql-拼接多列查询结果字段">MySql 拼接多列查询结果字段</h2>
 <h3 id="Ⅰ-问题描述：">Ⅰ 问题描述：</h3>
 <ul>
 <li>需求：查询<strong>商品列表</strong>的信息字段中，需要一个字段是<strong>具体分类名称的拼接字段</strong>，格式如“<strong>一级分类\二级分类</strong>”，涉及两个表，商品信息表（t_goods_info）和商品分类表（t_goods_category）。</li>
@@ -492,7 +492,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span>,</span><br><span class="line">concat_ws(<span class="string">&#x27;/&#x27;</span>, (<span class="keyword">select</span> category_name <span class="keyword">from</span> t_goods_category <span class="keyword">where</span> id <span class="operator">=</span> toc.parent_id), toc.category_name) <span class="keyword">as</span> category</span><br><span class="line"><span class="keyword">from</span> t_goods_info tgi</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> t_goods_category toc <span class="keyword">on</span> toc.id <span class="operator">=</span> tgi.category_id</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>前端接口调用结果如图：<img src="mysql%E6%8B%BC%E6%8E%A5%E5%A4%9A%E5%88%97%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AD%97%E6%AE%B5/image-20220208142430457-16443014781661.png" alt="image-20220208142430457"></p>
+<p>前端接口调用结果如图:<img src="mysql%E6%8B%BC%E6%8E%A5%E5%A4%9A%E5%88%97%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AD%97%E6%AE%B5/image-20220208151151198.png" alt="image-20220208151151198"></p>
 </li>
 </ol>
 <h3 id="Ⅲ-参考资料">Ⅲ 参考资料</h3>
@@ -517,7 +517,7 @@
           
           
           <li class="next">
-            <a href="/post/20200417023417.html" data-toggle="tooltip" data-placement="top" title="Hexo-Theme-LiveMyLife">Next Post &rarr;</a>
+            <a href="/post/Hexo-Theme-LiveMyLife/" data-toggle="tooltip" data-placement="top" title="Hexo-Theme-LiveMyLife">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -566,7 +566,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=拼接多列查询结果字段&body=Hi,I found this website and thought you might like it https://www.mrsenmu.com/post/20220208112947.html">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=拼接多列查询结果字段&body=Hi,I found this website and thought you might like it https://www.mrsenmu.com/post/MySql拼接多列查询结果字段/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -653,7 +653,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">目录</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%8B%BC%E6%8E%A5%E5%A4%9A%E5%88%97%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AD%97%E6%AE%B5"><span class="toc-nav-text">拼接多列查询结果字段</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%85%A0-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="toc-nav-text">Ⅰ 问题描述：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%85%A1-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-nav-text">Ⅱ 解决方案</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%85%A2-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-nav-text">Ⅲ 参考资料</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%85%A3-%E6%80%BB%E7%BB%93"><span class="toc-nav-text">Ⅳ 总结</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#MySql-%E6%8B%BC%E6%8E%A5%E5%A4%9A%E5%88%97%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AD%97%E6%AE%B5"><span class="toc-nav-text">MySql 拼接多列查询结果字段</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%85%A0-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="toc-nav-text">Ⅰ 问题描述：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%85%A1-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-nav-text">Ⅱ 解决方案</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%85%A2-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-nav-text">Ⅲ 参考资料</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%85%A3-%E6%80%BB%E7%BB%93"><span class="toc-nav-text">Ⅳ 总结</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -859,7 +859,7 @@
     let jsdelivr = "https://cdn.jsdelivr.net/gh/";
     let gh = "mrsenmu";
     let ghPages = gh + ".github.io";
-    let pagePath = "post/20220208112947.html";
+    let pagePath = "post/MySql拼接多列查询结果字段/";
     let jsdelivrurl;
     if (pagePath.indexOf("index.html") != -1) {
       jsdelivrurl = jsdelivr + gh + "/" + ghPages;
