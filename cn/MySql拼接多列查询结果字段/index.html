@@ -140,7 +140,7 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://www.mrsenmu.com/post/MySql拼接多列查询结果字段/">
+  <link rel="canonical" href="https://www.mrsenmu.com/cn/MySql拼接多列查询结果字段/">
   <title>
     
       拼接多列查询结果字段 - Mr.森木的博客
@@ -245,15 +245,6 @@
 
           
           
-          <li>
-            <a href="/archive/">
-              
-              归档
-              
-              
-            </a>
-          </li>
-          
           
           
           <li>
@@ -266,6 +257,15 @@
           </li>
           
           
+          
+          <li>
+            <a href="/archive/">
+              
+              归档
+              
+              
+            </a>
+          </li>
           
           
           
@@ -492,7 +492,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span>,</span><br><span class="line">concat_ws(<span class="string">&#x27;/&#x27;</span>, (<span class="keyword">select</span> category_name <span class="keyword">from</span> t_goods_category <span class="keyword">where</span> id <span class="operator">=</span> toc.parent_id), toc.category_name) <span class="keyword">as</span> category</span><br><span class="line"><span class="keyword">from</span> t_goods_info tgi</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> t_goods_category toc <span class="keyword">on</span> toc.id <span class="operator">=</span> tgi.category_id</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>前端接口调用结果如图:<img src="mysql%E6%8B%BC%E6%8E%A5%E5%A4%9A%E5%88%97%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AD%97%E6%AE%B5/image-20220208151151198.png" alt="image-20220208151151198"></p>
+<p>前端接口调用结果如图:<img src="cn/MySql%E6%8B%BC%E6%8E%A5%E5%A4%9A%E5%88%97%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AD%97%E6%AE%B5/image-20220208151151198.png" class="" title="image-20220208151151198"></p>
 </li>
 </ol>
 <h3 id="Ⅲ-参考资料">Ⅲ 参考资料</h3>
@@ -517,7 +517,7 @@
           
           
           <li class="next">
-            <a href="/post/Hexo-Theme-LiveMyLife/" data-toggle="tooltip" data-placement="top" title="Hexo-Theme-LiveMyLife">Next Post &rarr;</a>
+            <a href="/cn/Hexo-Theme-LiveMyLife/" data-toggle="tooltip" data-placement="top" title="Hexo-Theme-LiveMyLife">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -566,7 +566,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=拼接多列查询结果字段&body=Hi,I found this website and thought you might like it https://www.mrsenmu.com/post/MySql拼接多列查询结果字段/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=拼接多列查询结果字段&body=Hi,I found this website and thought you might like it https://www.mrsenmu.com/cn/MySql拼接多列查询结果字段/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -859,7 +859,7 @@
     let jsdelivr = "https://cdn.jsdelivr.net/gh/";
     let gh = "mrsenmu";
     let ghPages = gh + ".github.io";
-    let pagePath = "post/MySql拼接多列查询结果字段/";
+    let pagePath = "cn/MySql拼接多列查询结果字段/";
     let jsdelivrurl;
     if (pagePath.indexOf("index.html") != -1) {
       jsdelivrurl = jsdelivr + gh + "/" + ghPages;
