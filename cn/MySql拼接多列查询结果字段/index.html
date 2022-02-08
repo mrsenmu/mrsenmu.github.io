@@ -270,9 +270,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/tags/">
               
-              分类
+              标签
               
               
             </a>
@@ -281,9 +281,9 @@
           
           
           <li>
-            <a href="/tags/">
+            <a href="/categories/">
               
-              标签
+              分类
               
               
             </a>
@@ -474,38 +474,28 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h2 id="MySql-拼接多列查询结果字段">MySql 拼接多列查询结果字段</h2>
-<h3 id="Ⅰ-问题描述：">Ⅰ 问题描述：</h3>
-<ul>
+        <h2 id="MySql-拼接多列查询结果字段"><a href="#MySql-拼接多列查询结果字段" class="headerlink" title="MySql 拼接多列查询结果字段"></a>MySql 拼接多列查询结果字段</h2><h3 id="Ⅰ-问题描述："><a href="#Ⅰ-问题描述：" class="headerlink" title="Ⅰ 问题描述："></a>Ⅰ 问题描述：</h3><ul>
 <li>需求：查询<strong>商品列表</strong>的信息字段中，需要一个字段是<strong>具体分类名称的拼接字段</strong>，格式如“<strong>一级分类\二级分类</strong>”，涉及两个表，商品信息表（t_goods_info）和商品分类表（t_goods_category）。</li>
 <li>商品信息表中含字段：商品ID（id）、商品分类ID（category_id）。</li>
 <li>商品分类表中含字段：分类ID（id）、父级ID（parent_id）、分类名称（category_name）。</li>
 <li>流程：通过商品id ——&gt; 查询商品分类ID ——&gt; 获取二级分类名称、分级分类id ——&gt; 根据父级分类id查询分级分类名称 ——&gt; 拼接子父级分类名称。</li>
 </ul>
-<h3 id="Ⅱ-解决方案">Ⅱ 解决方案</h3>
-<ol>
-<li>
-<p>使用concat_ws, 语法：concat_ws(separator, str1, str2, …)。</p>
+<h3 id="Ⅱ-解决方案"><a href="#Ⅱ-解决方案" class="headerlink" title="Ⅱ 解决方案"></a>Ⅱ 解决方案</h3><ol>
+<li><p>使用concat_ws, 语法：concat_ws(separator, str1, str2, …)。</p>
 </li>
-<li>
-<p>sql语句：</p>
+<li><p>sql语句：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span>,</span><br><span class="line">concat_ws(<span class="string">&#x27;/&#x27;</span>, (<span class="keyword">select</span> category_name <span class="keyword">from</span> t_goods_category <span class="keyword">where</span> id <span class="operator">=</span> toc.parent_id), toc.category_name) <span class="keyword">as</span> category</span><br><span class="line"><span class="keyword">from</span> t_goods_info tgi</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> t_goods_category toc <span class="keyword">on</span> toc.id <span class="operator">=</span> tgi.category_id</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>前端接口调用结果如图:<img src="cn/MySql%E6%8B%BC%E6%8E%A5%E5%A4%9A%E5%88%97%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AD%97%E6%AE%B5/image-20220208151151198.png" class="" title="image-20220208151151198"></p>
+<li><p>前端接口调用结果如图: <img src="cn/MySql%E6%8B%BC%E6%8E%A5%E5%A4%9A%E5%88%97%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AD%97%E6%AE%B5/image-20220208171155259.png" class="" title="image-20220208171155259"></p>
 </li>
 </ol>
-<h3 id="Ⅲ-参考资料">Ⅲ 参考资料</h3>
-<ol>
-<li>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/haw2106/p/10735500.html">mysql中concat、group_concat的使用</a>。</p>
+<h3 id="Ⅲ-参考资料"><a href="#Ⅲ-参考资料" class="headerlink" title="Ⅲ 参考资料"></a>Ⅲ 参考资料</h3><ol>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/haw2106/p/10735500.html">mysql中concat、group_concat的使用</a>。</p>
 </li>
-<li>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35548288/article/details/81771978">拼接多列查询结果字段</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35548288/article/details/81771978">拼接多列查询结果字段</a></p>
 </li>
 </ol>
-<h3 id="Ⅳ-总结">Ⅳ 总结</h3>
-<ol>
+<h3 id="Ⅳ-总结"><a href="#Ⅳ-总结" class="headerlink" title="Ⅳ 总结"></a>Ⅳ 总结</h3><ol>
 <li><strong>concat、concat_ws（可指定通用分隔符）</strong>:直接字符串拼接，当需要拼接同一条数据中不同字段（行拼接）或拼接的两条数据不需要合并时。</li>
 <li><strong>group_concat</strong>: 会聚合查询结果，适用于需要合并查询结果集中有相似度的数据。如用户表中存在多个同名但不同id的数据（如name|id1, name|id2），可按名称聚合。能得到如：name|id1,id2的结果。</li>
 </ol>
