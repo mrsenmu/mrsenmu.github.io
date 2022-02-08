@@ -492,7 +492,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span>,</span><br><span class="line">concat_ws(<span class="string">&#x27;/&#x27;</span>, (<span class="keyword">select</span> category_name <span class="keyword">from</span> t_goods_category <span class="keyword">where</span> id <span class="operator">=</span> toc.parent_id), toc.category_name) <span class="keyword">as</span> category</span><br><span class="line"><span class="keyword">from</span> t_goods_info tgi</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> t_goods_category toc <span class="keyword">on</span> toc.id <span class="operator">=</span> tgi.category_id</span><br></pre></td></tr></table></figure>
 </li>
 <li>
-<p>前端接口调用结果如图: <img src="cn/MySql%E6%8B%BC%E6%8E%A5%E5%A4%9A%E5%88%97%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AD%97%E6%AE%B5/image-20220208171155259.png" class="" title="image-20220208171155259"></p>
+<p>前端接口调用结果如图: <img src="image-20220208171155259.png" alt="image-20220208171155259"></p>
 </li>
 </ol>
 <h3 id="Ⅲ-参考资料">Ⅲ 参考资料</h3>
