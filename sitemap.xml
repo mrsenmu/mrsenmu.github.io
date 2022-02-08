@@ -67,6 +67,13 @@
 
   
   <url>
+    <loc>https://www.mrsenmu.com/tags/Hexo-Theme-LiveMyLife/</loc>
+    <lastmod>2022-02-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mrsenmu.com/tags/MySql/</loc>
     <lastmod>2022-02-08</lastmod>
     <changefreq>daily</changefreq>
@@ -80,24 +87,17 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://www.mrsenmu.com/tags/Hexo-Theme-LiveMyLife/</loc>
-    <lastmod>2022-02-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
-    <loc>https://www.mrsenmu.com/categories/MySql/</loc>
+    <loc>https://www.mrsenmu.com/categories/Hexo-Theme-LiveMyLife/</loc>
     <lastmod>2022-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.mrsenmu.com/categories/Hexo-Theme-LiveMyLife/</loc>
+    <loc>https://www.mrsenmu.com/categories/MySql/</loc>
     <lastmod>2022-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
