@@ -2,56 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.mrsenmu.com/cn/MySql%E6%8B%BC%E6%8E%A5%E5%A4%9A%E5%88%97%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AD%97%E6%AE%B5/</loc>
+    <loc>https://www.mrsenmu.xyz/cn/Typora%E7%AC%94%E8%AE%B0%E4%B8%8A%E4%BC%A0github%E5%90%8E%E6%96%87%E6%A1%A3%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</loc>
+    
+    <lastmod>2022-02-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.mrsenmu.xyz/cn/MySql%E6%8B%BC%E6%8E%A5%E5%A4%9A%E5%88%97%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AD%97%E6%AE%B5/</loc>
     
     <lastmod>2022-02-08</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.mrsenmu.com/categories/index.html</loc>
+    <loc>https://www.mrsenmu.xyz/categories/index.html</loc>
     
     <lastmod>2022-01-07</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.mrsenmu.com/tags/index.html</loc>
+    <loc>https://www.mrsenmu.xyz/tags/index.html</loc>
     
     <lastmod>2021-12-31</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.mrsenmu.com/404.html</loc>
+    <loc>https://www.mrsenmu.xyz/404.html</loc>
     
     <lastmod>2021-12-31</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.mrsenmu.com/en/Hexo-Theme-LiveMyLife/</loc>
+    <loc>https://www.mrsenmu.xyz/cn/Hexo-Theme-LiveMyLife/</loc>
     
     <lastmod>2020-04-16</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.mrsenmu.com/cn/Hexo-Theme-LiveMyLife/</loc>
+    <loc>https://www.mrsenmu.xyz/en/Hexo-Theme-LiveMyLife/</loc>
     
     <lastmod>2020-04-16</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.mrsenmu.com/archive/index.html</loc>
+    <loc>https://www.mrsenmu.xyz/archive/index.html</loc>
     
     <lastmod>2017-03-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.mrsenmu.com/about/index.html</loc>
+    <loc>https://www.mrsenmu.xyz/about/index.html</loc>
     
     <lastmod>2016-04-20</lastmod>
     
@@ -59,30 +66,30 @@
   
 
   <url>
-    <loc>https://www.mrsenmu.com/</loc>
-    <lastmod>2022-02-09</lastmod>
+    <loc>https://www.mrsenmu.xyz/</loc>
+    <lastmod>2023-03-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://www.mrsenmu.com/tags/Hexo-Theme-LiveMyLife/</loc>
-    <lastmod>2022-02-09</lastmod>
+    <loc>https://www.mrsenmu.xyz/tags/Hexo-Theme-LiveMyLife/</loc>
+    <lastmod>2023-03-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.mrsenmu.com/tags/MySql/</loc>
-    <lastmod>2022-02-09</lastmod>
+    <loc>https://www.mrsenmu.xyz/tags/MySql/</loc>
+    <lastmod>2023-03-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.mrsenmu.com/tags/MySql%E6%9F%A5%E8%AF%A2/</loc>
-    <lastmod>2022-02-09</lastmod>
+    <loc>https://www.mrsenmu.xyz/tags/MySql%E6%9F%A5%E8%AF%A2/</loc>
+    <lastmod>2023-03-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -90,15 +97,15 @@
 
   
   <url>
-    <loc>https://www.mrsenmu.com/categories/Hexo-Theme-LiveMyLife/</loc>
-    <lastmod>2022-02-09</lastmod>
+    <loc>https://www.mrsenmu.xyz/categories/Hexo-Theme-LiveMyLife/</loc>
+    <lastmod>2023-03-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.mrsenmu.com/categories/MySql/</loc>
-    <lastmod>2022-02-09</lastmod>
+    <loc>https://www.mrsenmu.xyz/categories/MySql/</loc>
+    <lastmod>2023-03-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
